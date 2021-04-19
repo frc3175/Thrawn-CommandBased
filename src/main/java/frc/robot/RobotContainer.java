@@ -42,7 +42,7 @@ public class RobotContainer {
           m_drivetrain,
           () -> m_driverController.getTriggerAxis(GenericHID.Hand.kLeft),
           () -> m_driverController.getTriggerAxis(GenericHID.Hand.kRight),
-          () -> m_driverController.getX(Hand.kLeft), 
+          () ->  m_driverController.getX(Hand.kLeft), 
           m_driverController.getBumper(Hand.kLeft)));
 
               // Configure the button bindings
