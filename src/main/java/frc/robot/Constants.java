@@ -48,5 +48,13 @@ public final class Constants {
     public static final double INTAKE_SPEED = 1;
     public static final double OUTTAKE_SPEED = 1;
 
+    /*
+    ===============================
+                SHOOTER
+    ===============================
+    */
+
+    public static final int TOP_SHOOTER_MOTOR = 5; //Random number
+    public static final int BOTTOM_SHOOTER_MOTOR = 6; //Random number
 
 }
