@@ -26,6 +26,8 @@ import frc.robot.commands.IntakePowerCell; */
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
+
+
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_drivetrain= new Drivetrain();
@@ -33,7 +35,7 @@ public class RobotContainer {
  // private final Intake m_intake = new Intake();
   XboxController m_driverController = new XboxController(0);
   XboxController m_operatorController = new XboxController(1);
-  double triggerLinearSpeed;
+ 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -60,9 +62,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    //These configurations are really bad, fix them at some point
-
-    new JoystickButton(m_operatorController, Button.kB.value).whenPressed(new HopperSpin(m_hopper));
+    new JoystickButton(m_operatorController, Button.kB.value).whenHeld(new HopperSpin(m_hopper, Constants.HOPPER_POWER_FORWARD)).whenReleased(new HopperSpin(m_hopper, 0.0));
     /*new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
     new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));
     new JoystickButton(m_operatorController, Button.kY.value).whenPressed(new IntakePowerCell(m_intake)); */

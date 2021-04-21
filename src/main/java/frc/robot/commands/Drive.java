@@ -15,7 +15,6 @@ public class Drive extends CommandBase {
   private final Drivetrain m_drivetrain;
   private final DoubleSupplier m_leftTrigger;
   private final DoubleSupplier m_rightTrigger;
-  private final double m_speed;
   private final DoubleSupplier m_rotation;
   private final boolean m_qt;
 
@@ -25,16 +24,8 @@ public class Drive extends CommandBase {
     m_leftTrigger = leftTrigger;
     m_rightTrigger = rightTrigger;
     m_rotation = rotation;
-    m_qt = qt;
-  
-    if(m_leftTrigger.getAsDouble() > 0){ 
-      m_speed =0.5;
-    }else if(m_rightTrigger.getAsDouble() > 0){
-      m_speed = -0.5;
-    }else{
-      m_speed = 0;
-    }
-  
+    m_qt = qt; 
+
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_drivetrain);
@@ -48,7 +39,7 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drivetrain.Drive(m_speed, m_rotation.getAsDouble(), m_qt);
+    m_drivetrain.Drive((m_leftTrigger.getAsDouble() - m_rightTrigger.getAsDouble()), m_rotation.getAsDouble(), m_qt);
   }
 
   // Called once the command enlds or is interrupted.
