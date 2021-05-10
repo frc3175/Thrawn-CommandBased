@@ -57,4 +57,24 @@ public final class Constants {
     public static final int TOP_SHOOTER_MOTOR = 5; //Random number
     public static final int BOTTOM_SHOOTER_MOTOR = 6; //Random number
 
+    // ****ENCODER****
+
+    public static final int ENCODER_TOP_SHOOTER = 1; //Random number
+    public static final int ENCODER_BOTTOM_SHOOTER = 2; //Random number
+    public static final boolean IS_ENCODER_REVERSED = false; 
+
+    // ****PID****
+
+    public static final double kP = 1.0; //needs to be tuned
+    public static final double kI = 0.0; //needs to be tuned
+    public static final double kD = 0.0; //needs to be tuned
+    public static final double SHOOTER_PID_TOLERANCE = 0.1; //needs to be tuned
+
+    //****FEEDFORWARD****
+    
+    public static final double kSVolts = 0.05; //needs to be tuned or something? idk
+    public static final double kVVoltSecondsPerRotation = 12.0; //needs to be tuned or something? idk
+        /* Should have value 12V at free speed...
+        12.0 / kShooterFreeRPS; */
+
 }
