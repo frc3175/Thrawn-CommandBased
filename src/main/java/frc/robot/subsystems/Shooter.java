@@ -1,37 +1,41 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.controller.PIDController;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-import edu.wpi.first.wpilibj.controller.SimpleMotorFeedforward;
-import edu.wpi.first.wpilibj2.command.PIDSubsystem;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
+import com.ctre.phoenix.motorcontrol.TalonFXFeedbackDevice;
 
 import frc.robot.Constants;
 
-public class Shooter extends PIDSubsystem { 
+public class Shooter extends SubsystemBase {
     
+    TalonFX m_shooter_motor = new TalonFX(Constants.TOP_SHOOTER_MOTOR);
 
-    private final SpeedController m_shooter_motors = new SpeedControllerGroup(new WPI_TalonFX(Constants.TOP_SHOOTER_MOTOR), new WPI_TalonFX(Constants.BOTTOM_SHOOTER_MOTOR));
-    private final SimpleMotorFeedforward m_shooterFeedforward =
-      new SimpleMotorFeedforward(
-          Constants.kSVolts, Constants.kVVoltSecondsPerRotation);
+    public Shooter() {
+        m_shooter_motor.configFactoryDefault();
+        m_shooter_motor.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor,
+        Constants.PID_LOOP_IDX, 
+        Constants.TIMEOUT_MS);
 
-    public Shooter(PIDController m_shooter_pid) {
-        super(new PIDController(Constants.kP, Constants.kI, Constants.kD));
-        getController().setTolerance(Constants.SHOOTER_PID_TOLERANCE);
+        m_shooter_motor.configNominalOutputForward(0, Constants.TIMEOUT_MS);
+		m_shooter_motor.configNominalOutputReverse(0, Constants.TIMEOUT_MS);
+		m_shooter_motor.configPeakOutputForward(1, Constants.TIMEOUT_MS);
+        m_shooter_motor.configPeakOutputReverse(-1, Constants.TIMEOUT_MS);
+        
+        m_shooter_motor.config_kF(Constants.PID_LOOP_IDX, Constants.GAINS_VELOCITY_F, Constants.TIMEOUT_MS);
+        m_shooter_motor.config_kP(Constants.PID_LOOP_IDX, Constants.GAINS_VELOCITY_P, Constants.TIMEOUT_MS);
+        m_shooter_motor.config_kI(Constants.PID_LOOP_IDX, Constants.GAINS_VELOCITY_I, Constants.TIMEOUT_MS);
+        m_shooter_motor.config_kD(Constants.PID_LOOP_IDX, Constants.GAINS_VELOCITY_D, Constants.TIMEOUT_MS);
+
+
     }
-   
-    
-    @Override
-    public void useOutput(double output, double setpoint) {
-        m_shooter_motors.setVoltage(output + m_shooterFeedforward.calculate(setpoint)); 
-    }
+  
+    public void Shoot(double power) {
 
-    @Override
-    protected double getMeasurement() {
-        return 0; //WHAT GOES HERE??
+        double targetVelocity_UnitsPer100ms = power * 2000.0 * 2048.0 / 600.0;
+        m_shooter_motor.set(TalonFXControlMode.Velocity, targetVelocity_UnitsPer100ms);
+
     }
 
 }

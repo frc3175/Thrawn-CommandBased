@@ -11,9 +11,11 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.robot.commands.Drive;
 import frc.robot.commands.HopperSpin;
+import frc.robot.commands.ShootPowerCell;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Hopper;
+import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /* frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakeDown;
@@ -32,6 +34,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_drivetrain= new Drivetrain();
   private final Hopper m_hopper = new Hopper();
+  private final Shooter m_shooter = new Shooter();
  // private final Intake m_intake = new Intake();
   XboxController m_driverController = new XboxController(0);
   XboxController m_operatorController = new XboxController(1);
@@ -66,6 +69,7 @@ public class RobotContainer {
     /*new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
     new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));
     new JoystickButton(m_operatorController, Button.kY.value).whenPressed(new IntakePowerCell(m_intake)); */
+    new JoystickButton(m_operatorController, Button.kX.value).whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER)).whenReleased(new ShootPowerCell(m_shooter, 0));                             
 
   }
 
