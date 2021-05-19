@@ -69,7 +69,7 @@ public class RobotContainer {
     /*new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
     new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));
     new JoystickButton(m_operatorController, Button.kY.value).whenPressed(new IntakePowerCell(m_intake)); */
-    new JoystickButton(m_operatorController, Button.kX.value).whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER)).whenReleased(new ShootPowerCell(m_shooter, 0));                             
+    new JoystickButton(m_operatorController, Button.kX.value).whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER)).whenReleased(new ShootPowerCell(m_shooter, 0.0));                             
 
   }
 

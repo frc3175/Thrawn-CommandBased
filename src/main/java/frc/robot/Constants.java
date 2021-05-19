@@ -56,7 +56,7 @@ public final class Constants {
 
     public static final int TOP_SHOOTER_MOTOR = 5; 
     public static final int BOTTOM_SHOOTER_MOTOR = 6; 
-    public static final double SHOOTER_POWER = 0.5;
+    public static final double SHOOTER_POWER = 1;
 
     // ****ENCODER****
 
@@ -68,9 +68,9 @@ public final class Constants {
 
     // ****GAINS****
 
-    public static final double GAINS_VELOCITY_F = 0.0495159729; //need to tune
+    public static final double GAINS_VELOCITY_F = 750; //need to tune
     public static final double GAINS_VELOCITY_P = 0.1; //need to tune
     public static final double GAINS_VELOCITY_I = 0.001; //need to tune
-    public static final double GAINS_VELOCITY_D = 0.5; //need to tune
+    public static final double GAINS_VELOCITY_D = 5; //need to tune
 
 }
