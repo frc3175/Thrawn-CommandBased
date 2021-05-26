@@ -1,0 +1,28 @@
+/*
+    ===============================
+               OPERATOR
+    ===============================
+    */
+
+    INTAKE UP:
+    INTAKE DOWN:
+    INTAKE: LEFT BUMPER
+
+    HOPPER: X BUTTON
+
+    SHOOTER: B BUTTON
+
+/*
+    ===============================
+               DRIVER
+    ===============================
+    */
+
+    FORWARD: RIGHT TRIGGER
+    BACKWARD: LEFT TRIGGER
+
+    TURN: LEFT JOYSTICK
+    QUICKTURN: LEFT BUMPER
+
+
+

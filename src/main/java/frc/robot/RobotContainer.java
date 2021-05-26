@@ -16,6 +16,8 @@ import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Intake;
+import frc.robot.commands.IntakePowerCell;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /* frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakeDown;
@@ -35,6 +37,7 @@ public class RobotContainer {
   private final Drivetrain m_drivetrain= new Drivetrain();
   private final Hopper m_hopper = new Hopper();
   private final Shooter m_shooter = new Shooter();
+  private final Intake m_intake = new Intake();
  // private final Intake m_intake = new Intake();
   XboxController m_driverController = new XboxController(0);
   XboxController m_operatorController = new XboxController(1);
@@ -65,11 +68,20 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    new JoystickButton(m_operatorController, Button.kB.value).whenHeld(new HopperSpin(m_hopper, Constants.HOPPER_POWER_FORWARD)).whenReleased(new HopperSpin(m_hopper, 0.0));
-    /*new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
-    new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));
-    new JoystickButton(m_operatorController, Button.kY.value).whenPressed(new IntakePowerCell(m_intake)); */
-    new JoystickButton(m_operatorController, Button.kX.value).whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER)).whenReleased(new ShootPowerCell(m_shooter, 0.0));                             
+    new JoystickButton(m_operatorController, Button.kBumperLeft.value)
+        .whenHeld(new HopperSpin(m_hopper, Constants.HOPPER_POWER_FORWARD))
+        .whenReleased(new HopperSpin(m_hopper, 0.0));
+
+    new JoystickButton(m_operatorController, Button.kX.value)
+        .whenPressed(new IntakePowerCell(m_intake, Constants.INTAKE_SPEED))
+        .whenReleased(new IntakePowerCell(m_intake, 0.0));
+
+    new JoystickButton(m_operatorController, Button.kB.value)
+        .whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER))
+        .whenReleased(new ShootPowerCell(m_shooter, 0.0));  
+                                                             
+    //new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
+    //new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));
 
   }
 

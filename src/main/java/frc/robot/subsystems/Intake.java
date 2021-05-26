@@ -1,4 +1,4 @@
-/* package frc.robot.subsystems;
+package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -34,4 +34,4 @@ public class Intake extends SubsystemBase {
         m_intake.set(reversepower);
     }
     
-} */
+} 
