@@ -14,6 +14,7 @@ import frc.robot.commands.HopperSpin;
 import frc.robot.commands.ShootPowerCell;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
@@ -78,7 +79,7 @@ public class RobotContainer {
 
     new JoystickButton(m_operatorController, Button.kB.value)
         .whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER))
-        .whenReleased(new ShootPowerCell(m_shooter, 0.0));  
+        .whenReleased(new InstantCommand(m_shooter::StopShooter, m_shooter));  
                                                              
     //new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
     //new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));

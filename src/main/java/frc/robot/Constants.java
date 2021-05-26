@@ -42,10 +42,10 @@ public final class Constants {
     */
 
     public static final int INTAKE_FALCON = 19; //Also a random number
-    public static final int RIGHT_SOLENOID = 3; //Random
-    public static final int LEFT_SOLENOID = 4; //Random
+    //public static final int RIGHT_SOLENOID = 3; //Random
+    //public static final int LEFT_SOLENOID = 4; //Random
 
-    public static final double INTAKE_SPEED = 1;
+    public static final double INTAKE_SPEED = 0.75;
     public static final double OUTTAKE_SPEED = 1;
 
     /*

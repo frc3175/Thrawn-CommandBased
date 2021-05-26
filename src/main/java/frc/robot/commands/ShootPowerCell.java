@@ -38,7 +38,7 @@ public class ShootPowerCell extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    //m_shooter.useOutput(0, 0);
+    //m_shooter.Shoot(0);
     return true;
   } 
 

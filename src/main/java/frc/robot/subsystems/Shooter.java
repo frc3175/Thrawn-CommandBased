@@ -20,6 +20,7 @@ public class Shooter extends SubsystemBase {
         m_bottom_shooter_motor.follow(m_shooter_motor);
 
         m_shooter_motor.configFactoryDefault();
+        m_bottom_shooter_motor.configFactoryDefault();
         m_shooter_motor.configSelectedFeedbackSensor(TalonFXFeedbackDevice.IntegratedSensor,
         Constants.PID_LOOP_IDX, 
         Constants.TIMEOUT_MS);
@@ -43,6 +44,10 @@ public class Shooter extends SubsystemBase {
         m_shooter_motor.set(TalonFXControlMode.Velocity, targetVelocity_UnitsPer100ms);
         SmartDashboard.putNumber("Shooter/TopMotor RPM", m_shooter_motor.getSelectedSensorVelocity());
 
+    }
+
+    public void StopShooter(){
+        m_shooter_motor.set(TalonFXControlMode.PercentOutput,0);
     }
 
 }
