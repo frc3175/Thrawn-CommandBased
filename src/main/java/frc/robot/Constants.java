@@ -41,7 +41,7 @@ public final class Constants {
     ===============================
     */
 
-    public static final int INTAKE_FALCON = 2; //Also a random number
+    public static final int INTAKE_FALCON = 19; //Also a random number
     public static final int RIGHT_SOLENOID = 3; //Random
     public static final int LEFT_SOLENOID = 4; //Random
 
