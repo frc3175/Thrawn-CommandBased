@@ -19,9 +19,13 @@ import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakePowerCell;
+import frc.robot.commands.ClimbUp;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-/* frc.robot.subsystems.Intake;
-import frc.robot.commands.IntakeDown;
+import frc.robot.subsystems.Climber;
+import frc.robot.commands.AgitateHopper;
+import frc.robot.commands.AgitateIntake;
+import frc.robot.commands.ClimbDown;
+/*import frc.robot.commands.IntakeDown;
 import frc.robot.commands.IntakeUp;
 import frc.robot.commands.IntakePowerCell; */
 
@@ -39,6 +43,7 @@ public class RobotContainer {
   private final Hopper m_hopper = new Hopper();
   private final Shooter m_shooter = new Shooter();
   private final Intake m_intake = new Intake();
+  private final Climber m_climber = new Climber();
  // private final Intake m_intake = new Intake();
   XboxController m_driverController = new XboxController(0);
   XboxController m_operatorController = new XboxController(1);
@@ -79,8 +84,24 @@ public class RobotContainer {
 
     new JoystickButton(m_operatorController, Button.kB.value)
         .whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER))
-        .whenReleased(new InstantCommand(m_shooter::StopShooter, m_shooter));  
-                                                             
+        .whenReleased(new InstantCommand(m_shooter::StopShooter, m_shooter)); 
+        
+    new JoystickButton(m_operatorController, Button.kBack.value)
+        .whenHeld(new ClimbUp(m_climber, Constants.CLIMB_SPEED))
+        .whenReleased(new ClimbUp(m_climber, 0.0));
+    
+    new JoystickButton(m_operatorController, Button.kStart.value)
+        .whenHeld(new ClimbDown(m_climber, Constants.REVERSE_CLIMB_SPEED))
+        .whenReleased(new ClimbDown(m_climber, 0.0));
+
+    new JoystickButton(m_operatorController, Button.kY.value)
+        .whenHeld(new AgitateIntake(m_intake, Constants.OUTTAKE_SPEED))
+        .whenReleased(new AgitateIntake(m_intake, 0.0));
+
+    new JoystickButton(m_operatorController, Button.kA.value)
+        .whenHeld(new AgitateHopper(m_hopper, Constants.HOPPER_POWER_REVERSE))
+        .whenReleased(new AgitateHopper(m_hopper, 0.0));
+    
     //new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
     //new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));
 

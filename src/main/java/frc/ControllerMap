@@ -7,10 +7,15 @@
     INTAKE UP:
     INTAKE DOWN:
     INTAKE: LEFT BUMPER
+    AGITATE INTAKE: Y BUTTON
 
     HOPPER: X BUTTON
+    AGITATE HOPPER: A BUTTON
 
     SHOOTER: B BUTTON
+
+    CLIMB UP: BACK BUTTON
+    CLIMB DOWN: START BUTTON
 
 /*
     ===============================
