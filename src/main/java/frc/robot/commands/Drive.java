@@ -26,7 +26,6 @@ public class Drive extends CommandBase {
     m_rotation = rotation;
     m_qt = qt; 
 
-
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_drivetrain);
   }
