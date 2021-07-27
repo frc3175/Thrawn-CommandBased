@@ -43,8 +43,8 @@ public final class Constants {
     */
 
     public static final int INTAKE_FALCON = 19; //Also a random number
-    //public static final int RIGHT_SOLENOID = 3; //Random
-    //public static final int LEFT_SOLENOID = 4; //Random
+    public static final int RIGHT_SOLENOID = 0; //Random
+    public static final int LEFT_SOLENOID = 1; //Random
 
     public static final double INTAKE_SPEED = 0.75;
     public static final double OUTTAKE_SPEED = 1; //Random
@@ -55,10 +55,10 @@ public final class Constants {
     ===============================
     */
 
-    public static final int CLIMBER_MOTOR = 7; //RANDOM
+    public static final int CLIMBER_MOTOR = 0; //RANDOM
 
-    public static final double CLIMB_SPEED = 0.5; //RANDOM
-    public static final double REVERSE_CLIMB_SPEED = 0.5; //RANDOM
+    public static final double CLIMB_SPEED = 0.25; //RANDOM
+    public static final double REVERSE_CLIMB_SPEED = 0.25; //RANDOM
 
     /*
     ===============================
