@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.robot.commands.Drive;
 import frc.robot.commands.HopperSpin;
+import frc.robot.commands.IntakeDown;
 import frc.robot.commands.ShootPowerCell;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -19,6 +20,7 @@ import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakePowerCell;
+import frc.robot.commands.IntakeUp;
 import frc.robot.commands.ClimbUp;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Climber;
@@ -94,16 +96,16 @@ public class RobotContainer {
         .whenHeld(new ClimbDown(m_climber, Constants.REVERSE_CLIMB_SPEED))
         .whenReleased(new ClimbDown(m_climber, 0.0));
 
-    new JoystickButton(m_operatorController, Button.kY.value)
+    /*new JoystickButton(m_operatorController, Button.kY.value)
         .whenHeld(new AgitateIntake(m_intake, Constants.OUTTAKE_SPEED))
         .whenReleased(new AgitateIntake(m_intake, 0.0));
 
     new JoystickButton(m_operatorController, Button.kA.value)
         .whenHeld(new AgitateHopper(m_hopper, Constants.HOPPER_POWER_REVERSE))
-        .whenReleased(new AgitateHopper(m_hopper, 0.0));
+        .whenReleased(new AgitateHopper(m_hopper, 0.0)); */
     
-    //new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
-    //new JoystickButton(m_operatorController, Button.kX.value).whenPressed(new IntakeDown(m_intake));
+    new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
+    new JoystickButton(m_operatorController, Button.kY.value).whenPressed(new IntakeDown(m_intake));
 
   }
 

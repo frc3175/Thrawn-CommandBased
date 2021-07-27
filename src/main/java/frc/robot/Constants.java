@@ -55,10 +55,10 @@ public final class Constants {
     ===============================
     */
 
-    public static final int CLIMBER_MOTOR = 0; //RANDOM
+    public static final int CLIMBER_MOTOR = 0; 
 
-    public static final double CLIMB_SPEED = 0.25; //RANDOM
-    public static final double REVERSE_CLIMB_SPEED = 0.25; //RANDOM
+    public static final double CLIMB_SPEED = 1;
+    public static final double REVERSE_CLIMB_SPEED = 1; 
 
     /*
     ===============================
