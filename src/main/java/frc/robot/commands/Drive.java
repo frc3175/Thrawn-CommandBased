@@ -51,3 +51,40 @@ public class Drive extends CommandBase {
     return false;
   }
 }
+
+
+
+
+
+
+
+
+/*Idea for how to square joystick inputs and fix reverse turning
+
+  // Called every time the scheduler runs while the command is scheduled.
+  @Override
+  public void execute() {
+
+    double joystickTurnSpeed = m_rotation.getAsDouble();
+    double turnSpeedMod;
+    double leftTriggerInput = m_leftTrigger.getAsDouble();
+    double leftTriggerInputMod;
+    double rightTriggerInput = m_rightTrigger.getAsDouble();
+    double rightTriggerInputMod;
+
+    if(m_leftTrigger.getAsDouble() > 0) {
+      turnSpeedMod = joystickTurnSpeed * -1;
+    } else {
+      turnSpeedMod = joystickTurnSpeed;
+    }
+
+    leftTriggerInputMod = leftTriggerInput * leftTriggerInput;
+    rightTriggerInputMod = rightTriggerInput * rightTriggerInput;
+
+
+    m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod, turnSpeedMod, m_qt);
+  }
+
+
+
+  */
