@@ -93,4 +93,6 @@ public final class Constants {
     ===============================
     */
 
+    public static final double AUTON_DRIVE_SPEED = 0.5;
+
 }
