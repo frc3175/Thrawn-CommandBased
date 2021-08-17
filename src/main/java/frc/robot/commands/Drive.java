@@ -38,7 +38,25 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drivetrain.Drive((m_leftTrigger.getAsDouble() - m_rightTrigger.getAsDouble()), -m_rotation.getAsDouble(), m_qt);
+
+    double joystickTurnSpeed = m_rotation.getAsDouble();
+    double turnSpeedMod;
+    double leftTriggerInput = m_leftTrigger.getAsDouble();
+    double leftTriggerInputMod;
+    double rightTriggerInput = m_rightTrigger.getAsDouble();
+    double rightTriggerInputMod;
+
+    if(m_leftTrigger.getAsDouble() > 0) {
+      turnSpeedMod = joystickTurnSpeed * -1;
+    } else {
+      turnSpeedMod = joystickTurnSpeed;
+    } //hi
+
+    leftTriggerInputMod = leftTriggerInput * leftTriggerInput;
+    rightTriggerInputMod = rightTriggerInput * rightTriggerInput;
+
+
+    m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod), turnSpeedMod, m_qt);
   }
 
   // Called once the command enlds or is interrupted.
@@ -56,35 +74,11 @@ public class Drive extends CommandBase {
 
 
 
+  
 
-
-
-/*Idea for how to square joystick inputs and fix reverse turning
-
-  // Called every time the scheduler runs while the command is scheduled.
+  /* Old execute method (before reverse turning was fixed and joystick inputs were squared) 
+    // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    double joystickTurnSpeed = m_rotation.getAsDouble();
-    double turnSpeedMod;
-    double leftTriggerInput = m_leftTrigger.getAsDouble();
-    double leftTriggerInputMod;
-    double rightTriggerInput = m_rightTrigger.getAsDouble();
-    double rightTriggerInputMod;
-
-    if(m_leftTrigger.getAsDouble() > 0) {
-      turnSpeedMod = joystickTurnSpeed * -1;
-    } else {
-      turnSpeedMod = joystickTurnSpeed;
-    }
-
-    leftTriggerInputMod = leftTriggerInput * leftTriggerInput;
-    rightTriggerInputMod = rightTriggerInput * rightTriggerInput;
-
-
-    m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod, turnSpeedMod, m_qt);
-  }
-
-
-
-  */
+    m_drivetrain.Drive((m_leftTrigger.getAsDouble() - m_rightTrigger.getAsDouble()), -m_rotation.getAsDouble(), m_qt);
+  } */
