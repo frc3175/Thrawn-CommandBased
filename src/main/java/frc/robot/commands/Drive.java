@@ -39,7 +39,7 @@ public class Drive extends CommandBase {
   @Override
   public void execute() {
 
-    double joystickTurnSpeed = m_rotation.getAsDouble();
+    //double joystickTurnSpeed = m_rotation.getAsDouble();
     double turnSpeedMod;
     double leftTriggerInput = m_leftTrigger.getAsDouble();
     double leftTriggerInputMod;
@@ -47,16 +47,16 @@ public class Drive extends CommandBase {
     double rightTriggerInputMod;
 
     if(m_leftTrigger.getAsDouble() > 0) {
-      turnSpeedMod = joystickTurnSpeed * -1;
+      turnSpeedMod = m_rotation.getAsDouble() * -1;
     } else {
-      turnSpeedMod = joystickTurnSpeed;
+      turnSpeedMod = m_rotation.getAsDouble();
     } //hi
 
     leftTriggerInputMod = leftTriggerInput * leftTriggerInput;
     rightTriggerInputMod = rightTriggerInput * rightTriggerInput;
 
 
-    m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod), turnSpeedMod, m_qt);
+    m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod), (turnSpeedMod * -1), m_qt); 
   }
 
   // Called once the command enlds or is interrupted.

@@ -21,9 +21,13 @@ import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakePowerCell;
 import frc.robot.commands.IntakeUp;
+import frc.robot.commands.IntakeUpAndDown;
 import frc.robot.commands.ClimbUp;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Climber;
+import frc.robot.autocommands.AutoCommandBase;
+import frc.robot.automodes.AutonMode;
+import frc.robot.automodes.BasicAuton;
 import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.AgitateIntake;
 import frc.robot.commands.ClimbDown;
@@ -49,6 +53,9 @@ public class RobotContainer {
  // private final Intake m_intake = new Intake();
   XboxController m_driverController = new XboxController(0);
   XboxController m_operatorController = new XboxController(1);
+  private boolean m_quickTurn = m_driverController.getBumperPressed(Hand.kLeft);
+
+  BasicAuton m_basicAuton = new BasicAuton();
  
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -59,7 +66,7 @@ public class RobotContainer {
           () -> m_driverController.getTriggerAxis(GenericHID.Hand.kLeft),
           () -> m_driverController.getTriggerAxis(GenericHID.Hand.kRight),
           () ->  m_driverController.getX(Hand.kLeft), 
-          m_driverController.getBumper(Hand.kLeft)));
+          m_driverController.getBumperPressed(Hand.kLeft)));
 
               // Configure the button bindings
     configureButtonBindings();
@@ -80,8 +87,8 @@ public class RobotContainer {
         .whenHeld(new HopperSpin(m_hopper, Constants.HOPPER_POWER_FORWARD))
         .whenReleased(new HopperSpin(m_hopper, 0.0));
 
-    new JoystickButton(m_operatorController, Button.kX.value)
-        .whenPressed(new IntakePowerCell(m_intake, Constants.INTAKE_SPEED))
+    new JoystickButton(m_operatorController, Button.kA.value)
+        .whenHeld(new IntakePowerCell(m_intake, Constants.INTAKE_SPEED))
         .whenReleased(new IntakePowerCell(m_intake, 0.0));
 
     new JoystickButton(m_operatorController, Button.kB.value)
@@ -96,16 +103,17 @@ public class RobotContainer {
         .whenHeld(new ClimbDown(m_climber, Constants.REVERSE_CLIMB_SPEED))
         .whenReleased(new ClimbDown(m_climber, 0.0));
 
-    /*new JoystickButton(m_operatorController, Button.kY.value)
+    new JoystickButton(m_operatorController, Button.kY.value)
         .whenHeld(new AgitateIntake(m_intake, Constants.OUTTAKE_SPEED))
         .whenReleased(new AgitateIntake(m_intake, 0.0));
 
-    new JoystickButton(m_operatorController, Button.kA.value)
+    new JoystickButton(m_operatorController, Button.kBumperRight.value)
         .whenHeld(new AgitateHopper(m_hopper, Constants.HOPPER_POWER_REVERSE))
-        .whenReleased(new AgitateHopper(m_hopper, 0.0)); */
+        .whenReleased(new AgitateHopper(m_hopper, 0.0));
     
-    new JoystickButton(m_operatorController, Button.kA.value).whenPressed(new IntakeUp(m_intake));
-    new JoystickButton(m_operatorController, Button.kY.value).whenPressed(new IntakeDown(m_intake));
+    new JoystickButton(m_operatorController, Button.kStickRight.value).whenPressed(new IntakeDown(m_intake));
+
+    new JoystickButton(m_operatorController, Button.kStickLeft.value).whenPressed(new IntakeUp(m_intake));
 
   }
 
@@ -116,6 +124,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-   return null;
+   return (Command) m_basicAuton;
  }
 }
