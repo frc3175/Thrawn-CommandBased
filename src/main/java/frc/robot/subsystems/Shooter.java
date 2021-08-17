@@ -50,4 +50,12 @@ public class Shooter extends SubsystemBase {
         m_shooter_motor.set(TalonFXControlMode.PercentOutput,0);
     }
 
+    public void resetEncoders() {
+        m_shooter_motor.setSelectedSensorPosition(0);
+    }
+
+    public double getEncoderPosition() {
+        return m_shooter_motor.getSelectedSensorPosition();
+    }
+
 }

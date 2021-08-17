@@ -23,4 +23,12 @@ public class Climber extends SubsystemBase {
         climber_motor.set(ControlMode.PercentOutput, power);
     } 
 
+    public void resetEncoder() {
+        climber_motor.setSelectedSensorPosition(0);
+    }
+
+    public double getEncoderPosition() {
+        return climber_motor.getSelectedSensorPosition();
+    }
+
 }

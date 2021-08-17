@@ -26,6 +26,8 @@ public final class Constants {
     public static final int RIGHT_FRONT_MOTOR = 12;
     public static final int RIGHT_BACK_MOTOR = 13;
 
+    public static final int GYRO_PORT = 0; //random
+
     /*
     ===============================
                 HOPPER
@@ -84,5 +86,11 @@ public final class Constants {
     public static final double GAINS_VELOCITY_P = 0.1; //need to tune
     public static final double GAINS_VELOCITY_I = 0.001; //need to tune
     public static final double GAINS_VELOCITY_D = 5; //need to tune
+
+    /*
+    ===============================
+            AUTO CONSTANTS
+    ===============================
+    */
 
 }
