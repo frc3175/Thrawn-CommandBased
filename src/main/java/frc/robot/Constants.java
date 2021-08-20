@@ -93,6 +93,23 @@ public final class Constants {
     ===============================
     */
 
-    public static final double AUTON_DRIVE_SPEED = 0.5;
+    // ****BASIC AUTON & BASIC AUTON REVERSE****
+
+    public static final double BASIC_AUTON_DRIVE_SPEED = 0.5; //Drive speed in basic auton
+    public static final double BASIC_AUTON_REVERSE_SPEED = -0.5; //Drive speed in basic auton reverse
+    public static final double BASIC_TIMEOUT = 1.0; //Timeout before moving in basic autons
+    public static final double BASIC_DRIVE_TIME = 2.0; //Seconds to drive forward in basic autons
+
+    //****THREE BALL AUTON****
+
+    public static final double THREE_BALL_TIMEOUT = 1.0;
+    public static final double THREE_BALL_INITIAL_DRIVE = 2.0;
+    public static final double THREE_BALL_SPIN_UP = 2.0;
+    public static final double THREE_BALL_HOPPER_RUN = 3.0;
+    public static final double THREE_BALL_DRIVE_BACK = 3.0;
+
+    public static final double THREE_BALL_DRIVE_SPEED = 0.5;
+    public static final double THREE_BALL_SHOOT_SPEED = 0.8;
+    public static final double THREE_BALL_HOPPER_SPEED = 0.8;
 
 }

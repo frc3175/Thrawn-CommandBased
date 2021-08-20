@@ -43,7 +43,7 @@ public class TurnToAngle extends CommandBase{
     }
 
     @Override
-    public void end(boolean isFinished) {
+    public void end(boolean interrupted) {
         m_gyro.reset();
     }
 

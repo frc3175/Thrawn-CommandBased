@@ -1,10 +1,11 @@
 package frc.robot.autocommands;
 
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 
-public class DriveDuration extends AutoCommandBase {
+public class DriveDuration extends CommandBase {
 
     private Drivetrain m_drivetrain;
     private double m_power;
@@ -12,22 +13,22 @@ public class DriveDuration extends AutoCommandBase {
 
     Timer m_timer = new Timer();
 
-    public DriveDuration(double timeOut, Drivetrain drivetrain, double power, double seconds) {
-        super(timeOut);
+    public DriveDuration(Drivetrain drivetrain, double power, double seconds) {
         m_power = power;
         m_seconds = seconds;
         m_drivetrain = drivetrain;
+        addRequirements(m_drivetrain);
     }
 
     @Override
-    public void init() {
+    public void initialize() {
         m_timer.reset();
         m_timer.start();
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
-    public void run() {
+    public void execute() {
         if(m_timer.get() < m_seconds){
             m_drivetrain.Drive(m_power, 0, false);
         } else {
@@ -37,15 +38,16 @@ public class DriveDuration extends AutoCommandBase {
 
     // Called once the command ends or is interrupted.
     @Override
-    public void end() {
+    public void end(boolean interrupted) {
         m_timer.stop();
         m_timer.reset();
     }
 
-    @Override
-    public String getCommandName() {
-        return "DriveDuration";
-    }
-
-
+        // Returns true when the command should end.
+        @Override
+        public boolean isFinished() {
+            return false;
+        }
 }
+
+
