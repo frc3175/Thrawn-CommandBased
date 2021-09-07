@@ -35,8 +35,8 @@ public final class Constants {
     */
 
     public static final int HOPPER_TALON = 26; //Just a random number right now
-    public static final double HOPPER_POWER_FORWARD = 0.5;
-    public static final double HOPPER_POWER_REVERSE = 0.5; //random
+    public static final double HOPPER_POWER_FORWARD = 1;
+    public static final double HOPPER_POWER_REVERSE = 1; //random
 
     /*
     ===============================
