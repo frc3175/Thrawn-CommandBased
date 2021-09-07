@@ -54,7 +54,7 @@ public class RobotContainer {
   private final Climber m_climber = new Climber();
   XboxController m_driverController = new XboxController(0);
   XboxController m_operatorController = new XboxController(1);
-  private boolean m_quickTurn = m_driverController.getBumperPressed(Hand.kLeft);
+  //private boolean m_quickTurn = m_driverController.getBumperPressed(Hand.kLeft);
 
 //These are each of the autonomous commands that we can run
   Command m_basicAuton = new BasicAuton(m_drivetrain);
@@ -84,6 +84,16 @@ public class RobotContainer {
     new JoystickButton(m_operatorController, Button.kBumperLeft.value)
         .whenHeld(new HopperSpin(m_hopper, Constants.HOPPER_POWER_FORWARD))
         .whenReleased(new HopperSpin(m_hopper, 0.0));
+
+    new JoystickButton(m_driverController, Button.kBumperLeft.value)
+    .whenHeld(new Drive(m_drivetrain, () -> m_driverController.getTriggerAxis(GenericHID.Hand.kLeft),
+    () -> m_driverController.getTriggerAxis(GenericHID.Hand.kRight),
+    () ->  m_driverController.getX(Hand.kLeft), 
+    true))
+    .whenReleased(new Drive(m_drivetrain, () -> m_driverController.getTriggerAxis(GenericHID.Hand.kLeft),
+    () -> m_driverController.getTriggerAxis(GenericHID.Hand.kRight),
+    () ->  m_driverController.getX(Hand.kLeft), 
+    false));
 
 //Right bumper agitates hopper
     new JoystickButton(m_operatorController, Button.kBumperRight.value)
