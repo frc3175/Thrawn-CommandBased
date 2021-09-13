@@ -150,7 +150,7 @@ public class RobotContainer {
     //Uncomment the command to be run and comment the others out
     //return m_basicAuton;
     //return m_basicAutonReverse;
-    return m_threeBallAuton;
-    //return m_threeBallAutonEncoders;
+    //return m_threeBallAuton;
+    return m_threeBallAutonEncoders;
  }
 }

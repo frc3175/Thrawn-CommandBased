@@ -28,12 +28,12 @@ public class ThreeBallAutonEncoders extends CommandBase{
 
     @Override
     public void execute() {
-        if(m_drivetrain.getAverageEncoderPosition() < 200) {
+        if(m_drivetrain.getAverageEncoderPosition() < 100) {
             m_drivetrain.Drive(Constants.THREE_BALL_DRIVE_SPEED, 0, false);
             m_shooter.StopShooter();
             m_hopper.hopperPower(0);
             m_timer.start();
-        } else if(m_drivetrain.getAverageEncoderPosition() > 200 && m_timer.get() < 3) {
+        } else if(m_timer.get() < 3) {
             m_drivetrain.stopRobot();
             m_shooter.Shoot(Constants.SHOOTER_POWER);
             m_hopper.hopperPower(0);

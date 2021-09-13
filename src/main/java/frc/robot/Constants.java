@@ -108,7 +108,7 @@ public final class Constants {
     public static final double THREE_BALL_HOPPER_RUN = 3.0;
     public static final double THREE_BALL_DRIVE_BACK = 3.0;
 
-    public static final double THREE_BALL_DRIVE_SPEED = -0.4;
+    public static final double THREE_BALL_DRIVE_SPEED = -0.2;
     public static final double THREE_BALL_SHOOT_SPEED = 1;
     public static final double THREE_BALL_HOPPER_SPEED = 0.8;
 
