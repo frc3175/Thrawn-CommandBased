@@ -134,7 +134,7 @@ public class RobotContainer {
 //Right joystick button brings the intake down
     new JoystickButton(m_operatorController, Button.kStickRight.value).whenPressed(new IntakeDown(m_intake));
 
-//Left joystick burron sends the intake up
+//Left joystick button sends the intake up
     new JoystickButton(m_operatorController, Button.kStickLeft.value).whenPressed(new IntakeUp(m_intake));
 
   }
