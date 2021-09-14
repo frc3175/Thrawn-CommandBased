@@ -9,10 +9,12 @@ public class ClimbWithEncoder extends CommandBase{
     private Climber m_climber;
     private double m_climbSpeed;
     private double m_encoderTicks;
-    private boolean isClimberUp;
 
-    public ClimbWithEncoder(double climbSpeed) {
+    public ClimbWithEncoder(Climber climber, double climbSpeed, int encoderTicks) {
         m_climbSpeed = climbSpeed;
+        m_climber = climber;
+        m_encoderTicks = encoderTicks;
+        addRequirements(m_climber);
     }
 
     @Override
@@ -23,7 +25,11 @@ public class ClimbWithEncoder extends CommandBase{
     @Override
     public void execute() {
         if(m_climber.getEncoderPosition() < m_encoderTicks) {
-
+            m_climber.climbUp(m_climbSpeed);
+        } else if(m_climber.getEncoderPosition() < (m_encoderTicks + m_encoderTicks)) {
+            m_climber.climbDown(m_climbSpeed);
+        } else {
+            m_climber.climbUp(0);
         }
     }
 

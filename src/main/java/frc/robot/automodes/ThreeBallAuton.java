@@ -8,6 +8,13 @@ import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
+/* =============================================
+                  WARNING:
+            DO NOT READ THIS CLASS!
+    THIS IS A VERY TERRIBLY WRITTEN CLASS,
+    IT ONLY EXISTS IN CASE OF EMERGENCY!!!
+    ============================================ */
+
 public class ThreeBallAuton extends CommandBase{
 
     private Drivetrain m_drivetrain;

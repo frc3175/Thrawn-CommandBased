@@ -22,6 +22,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakePowerCell;
 import frc.robot.commands.IntakeUp;
 import frc.robot.commands.ClimbUp;
+import frc.robot.commands.ClimbWithEncoder;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Climber;
 import frc.robot.automodes.BasicAuton;
@@ -112,6 +113,8 @@ public class RobotContainer {
         .whenHeld(new ShootPowerCell(m_shooter, Constants.SHOOTER_POWER))
         .whenReleased(new InstantCommand(m_shooter::StopShooter, m_shooter)); 
 
+/* ACTUAL CLIMBER CODE
+
 //Back button sends the climbers up
     new JoystickButton(m_operatorController, Button.kBack.value)
         .whenHeld(new ClimbUp(m_climber, Constants.CLIMB_SPEED))
@@ -120,7 +123,13 @@ public class RobotContainer {
 //Start button brings the climbers down
     new JoystickButton(m_operatorController, Button.kStart.value)
         .whenHeld(new ClimbDown(m_climber, Constants.REVERSE_CLIMB_SPEED))
-        .whenReleased(new ClimbDown(m_climber, 0.0));
+        .whenReleased(new ClimbDown(m_climber, 0.0)); */
+
+//EXPERIMENTAL CLIMBER CODE
+
+    new JoystickButton(m_operatorController, Button.kBack.value)
+        .whenHeld(new ClimbWithEncoder(m_climber, Constants.CLIMB_SPEED, 100))
+        .whenReleased(new ClimbWithEncoder(m_climber, 0, 0));
 
 //Right joystick button brings the intake down
     new JoystickButton(m_operatorController, Button.kStickRight.value).whenPressed(new IntakeDown(m_intake));
