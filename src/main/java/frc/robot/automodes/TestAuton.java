@@ -29,8 +29,9 @@ public class TestAuton extends SequentialCommandGroup {
         addCommands(
             new AutoIntakeDown(m_intake),
             new WaitCommand(0.5),
-            new DriveDistance(m_drivetrain, Constants.THREE_BALL_DRIVE_SPEED, 500),
-            new AutoShootAndHopper(m_hopper, m_shooter, Constants.THREE_BALL_HOPPER_SPEED, Constants.THREE_BALL_SHOOT_SPEED, 3, 5)
+            new DriveDistance(m_drivetrain, Constants.THREE_BALL_DRIVE_SPEED, 800),
+            new WaitCommand(0.5),
+            new AutoShootAndHopper(m_hopper, m_shooter, Constants.THREE_BALL_HOPPER_SPEED, Constants.THREE_BALL_SHOOT_SPEED, 3.0, 5.0)
         );
 
     }

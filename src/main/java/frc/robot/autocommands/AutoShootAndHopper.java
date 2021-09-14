@@ -23,6 +23,7 @@ public class AutoShootAndHopper extends CommandBase {
         m_shooterPower = shooterPower;
         m_spinUpTime = spinUpTime;
         m_hopperSpinTime = hopperSpinTime;
+
         addRequirements(m_hopper, m_shooter);
     }
 
@@ -34,9 +35,10 @@ public class AutoShootAndHopper extends CommandBase {
 
     @Override
     public void execute() {
-        if(m_timer.get() < m_spinUpTime) {
+        m_timer.start();
+        if(m_timer.get() < (m_spinUpTime + 5)) {
             m_shooter.Shoot(m_shooterPower);
-        } else if(m_timer.get() < (m_spinUpTime + m_hopperSpinTime)) {
+        } else if(m_timer.get() < (m_spinUpTime + m_hopperSpinTime + 5)) {
             m_shooter.Shoot(m_shooterPower);
             m_hopper.hopperPower(m_hopperPower);
         } else {

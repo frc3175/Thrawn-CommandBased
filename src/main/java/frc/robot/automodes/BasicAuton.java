@@ -15,7 +15,7 @@ public class BasicAuton extends SequentialCommandGroup{
         addRequirements(m_drivetrain);
 
         addCommands(
-            new DriveDistance(m_drivetrain, Constants.BASIC_AUTON_DRIVE_SPEED, 400)
+            new DriveDistance(m_drivetrain, Constants.BASIC_AUTON_DRIVE_SPEED, 200)
         );
 
     }
