@@ -21,21 +21,17 @@ import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakePowerCell;
 import frc.robot.commands.IntakeUp;
-import frc.robot.commands.IntakeUpAndDown;
 import frc.robot.commands.ClimbUp;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Climber;
-import frc.robot.autocommands.AutoIntakeDown;
 import frc.robot.automodes.BasicAuton;
 import frc.robot.automodes.BasicAutonReverse;
+import frc.robot.automodes.TestAuton;
 import frc.robot.automodes.ThreeBallAuton;
 import frc.robot.automodes.ThreeBallAutonEncoders;
 import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.AgitateIntake;
 import frc.robot.commands.ClimbDown;
-/*import frc.robot.commands.IntakeDown;
-import frc.robot.commands.IntakeUp;
-import frc.robot.commands.IntakePowerCell; */
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -61,6 +57,7 @@ public class RobotContainer {
   Command m_basicAutonReverse = new BasicAutonReverse(m_drivetrain);
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper);
+  Command m_testAuton = new TestAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
 
 //Set the default command in the constructor
   public RobotContainer() {
@@ -151,6 +148,7 @@ public class RobotContainer {
     //return m_basicAuton;
     //return m_basicAutonReverse;
     //return m_threeBallAuton;
-    return m_threeBallAutonEncoders;
+    //return m_threeBallAutonEncoders;
+    return m_testAuton;
  }
 }
