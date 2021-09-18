@@ -47,13 +47,13 @@ public class Drive extends CommandBase {
     double rightTriggerInputMod;
 
     if(m_leftTrigger.getAsDouble() > 0) {
-      turnSpeedMod = m_rotation.getAsDouble() * -1;
+      turnSpeedMod = m_rotation.getAsDouble() * -1 * 0.6;
     } else {
-      turnSpeedMod = m_rotation.getAsDouble();
+      turnSpeedMod = m_rotation.getAsDouble() * 0.6;
     } //hi
 
-    leftTriggerInputMod = leftTriggerInput * leftTriggerInput * 0.6;
-    rightTriggerInputMod = rightTriggerInput * rightTriggerInput * 0.6;
+    leftTriggerInputMod = leftTriggerInput * leftTriggerInput;
+    rightTriggerInputMod = rightTriggerInput * rightTriggerInput;
 
 
     m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod), (turnSpeedMod * -1), m_qt); 
