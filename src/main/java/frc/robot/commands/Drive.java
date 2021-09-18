@@ -52,8 +52,8 @@ public class Drive extends CommandBase {
       turnSpeedMod = m_rotation.getAsDouble();
     } //hi
 
-    leftTriggerInputMod = leftTriggerInput * leftTriggerInput;
-    rightTriggerInputMod = rightTriggerInput * rightTriggerInput;
+    leftTriggerInputMod = leftTriggerInput * leftTriggerInput * 0.6;
+    rightTriggerInputMod = rightTriggerInput * rightTriggerInput * 0.6;
 
 
     m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod), (turnSpeedMod * -1), m_qt); 
