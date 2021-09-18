@@ -49,6 +49,7 @@ public class Drivetrain extends SubsystemBase {
   public double getAverageEncoderPosition() {
     double total = (left_front.getSelectedSensorPosition() + left_back.getSelectedSensorPosition() + 
                    right_front.getSelectedSensorPosition() + right_back.getSelectedSensorPosition());
+                   
     double average = total / 4;
     return average;
   }

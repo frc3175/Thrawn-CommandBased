@@ -102,9 +102,9 @@ public final class Constants {
 
     //****THREE BALL AUTON****
 
-    public static final double THREE_BALL_TIMEOUT = 3.0;
-    public static final double THREE_BALL_INITIAL_DRIVE = 1.3;
-    public static final double THREE_BALL_SPIN_UP = 2.0;
+    public static final double THREE_BALL_TIMEOUT = 5.0;
+    public static final double THREE_BALL_INITIAL_DRIVE = 1.23;
+    public static final double THREE_BALL_SPIN_UP = 3.0;
     public static final double THREE_BALL_HOPPER_RUN = 3.0;
     public static final double THREE_BALL_DRIVE_BACK = 3.0;
 

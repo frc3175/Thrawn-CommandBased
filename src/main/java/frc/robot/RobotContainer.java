@@ -28,6 +28,7 @@ import frc.robot.subsystems.Climber;
 import frc.robot.automodes.BasicAuton;
 import frc.robot.automodes.BasicAutonReverse;
 import frc.robot.automodes.TestAuton;
+import frc.robot.automodes.TestAutonDuration;
 import frc.robot.automodes.ThreeBallAuton;
 import frc.robot.automodes.ThreeBallAutonEncoders;
 import frc.robot.commands.AgitateHopper;
@@ -59,6 +60,7 @@ public class RobotContainer {
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper);
   Command m_testAuton = new TestAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
+  Command m_testAutonDuration = new TestAutonDuration(m_drivetrain, m_shooter, m_hopper, m_intake);
 
 //Set the default command in the constructor
   public RobotContainer() {
@@ -147,10 +149,11 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     //This is the command that will be run in auton
     //Uncomment the command to be run and comment the others out
-    return m_basicAuton;
+    //return m_basicAuton;
     //return m_basicAutonReverse;
-    //return m_threeBallAuton;
+    return m_threeBallAuton;
     //return m_threeBallAutonEncoders;
     //return m_testAuton;
+    //return m_testAutonDuration;
  }
 }
