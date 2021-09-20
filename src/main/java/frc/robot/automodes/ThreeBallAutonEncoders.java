@@ -28,12 +28,14 @@ public class ThreeBallAutonEncoders extends CommandBase{
 
     @Override
     public void execute() {
-        if(m_drivetrain.getAverageEncoderPosition() < 100) {
+        if(m_drivetrain.getAverageEncoderPosition() < 125506) {
             m_drivetrain.Drive(Constants.THREE_BALL_DRIVE_SPEED, 0, false);
             m_shooter.StopShooter();
             m_hopper.hopperPower(0);
             m_timer.start();
-        } else if(m_timer.get() < 3) {
+        } else {
+            m_drivetrain.Drive(0, 0, false);
+        } /* if(m_timer.get() < 3) {
             m_drivetrain.stopRobot();
             m_shooter.Shoot(Constants.SHOOTER_POWER);
             m_hopper.hopperPower(0);
@@ -45,7 +47,7 @@ public class ThreeBallAutonEncoders extends CommandBase{
             m_drivetrain.stopRobot();
             m_shooter.StopShooter();
             m_hopper.hopperPower(0);
-        }
+        } */
     }
 
     @Override 
