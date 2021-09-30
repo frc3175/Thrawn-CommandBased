@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
@@ -65,10 +66,18 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("left front encoder:", 1000);
+    SmartDashboard.putNumber("left back encoder:", left_back.getSelectedSensorPosition());
+    SmartDashboard.putNumber("right front encoder:", right_front.getSelectedSensorPosition());
+    SmartDashboard.putNumber("right back encoder:", right_back.getSelectedSensorPosition());
   }
 
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
+    SmartDashboard.putNumber("left front encoder:", left_front.getSelectedSensorPosition());
+    SmartDashboard.putNumber("left back encoder:", left_back.getSelectedSensorPosition());
+    SmartDashboard.putNumber("right front encoder:", right_front.getSelectedSensorPosition());
+    SmartDashboard.putNumber("right back encoder:", right_back.getSelectedSensorPosition());
   }
 }
