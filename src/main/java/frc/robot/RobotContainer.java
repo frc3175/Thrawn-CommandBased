@@ -17,7 +17,7 @@ import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.Hopper;
-import frc.robot.subsystems.Shooter; 
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Intake;
 import frc.robot.commands.IntakePowerCell;
 import frc.robot.commands.IntakeUp;
@@ -25,6 +25,7 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.ClimbWithEncoder;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Climber;
+import frc.robot.automodes.AutoWithTurn;
 import frc.robot.automodes.BasicAuton;
 import frc.robot.automodes.BasicAutonReverse;
 import frc.robot.automodes.TestAuton;
@@ -58,9 +59,10 @@ public class RobotContainer {
   Command m_basicAuton = new BasicAuton(m_drivetrain);
   Command m_basicAutonReverse = new BasicAutonReverse(m_drivetrain);
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
-  Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper);
+  Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_testAuton = new TestAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_testAutonDuration = new TestAutonDuration(m_drivetrain, m_shooter, m_hopper, m_intake);
+  Command m_autoWithTurn = new AutoWithTurn(m_drivetrain, m_shooter, m_hopper, m_intake);
 
 //Set the default command in the constructor
   public RobotContainer() {
@@ -152,8 +154,9 @@ public class RobotContainer {
     //return m_basicAuton;
     //return m_basicAutonReverse;
     //return m_threeBallAuton;
-    return m_threeBallAutonEncoders;
+    //return m_threeBallAutonEncoders;
     //return m_testAuton;
     //return m_testAutonDuration;
+    return m_autoWithTurn;
  }
 }

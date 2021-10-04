@@ -26,17 +26,14 @@ public class DriveDistance extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        boolean successful = true;
+
         
-        while(successful == true) {
             if(m_drivetrain.getEncoder() < m_encoderTicks) {
                 m_drivetrain.Drive(m_power, 0, false);
-                successful = true;
             } else {
                 m_drivetrain.Drive(0, 0, false);
-                successful = false;
             }
-        } 
+
         //while(m_drivetrain.getEncoder() > m_encoderTicks) {
        //     m_drivetrain.stopRobot();
         //}

@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
@@ -58,8 +59,20 @@ public class Drivetrain extends SubsystemBase {
       return left_front.getSelectedSensorPosition();
   }
 
+  public double getRightEncoder() {
+    return right_front.getSelectedSensorPosition();
+}
+
   public void stopRobot() {
     m_drive.curvatureDrive(0, 0, false);
+  }
+
+  public void turnLeft() {
+    m_drive.curvatureDrive(0, 0.5, true);
+  }
+
+  public double getDistance() {
+      return (left_front.getSelectedSensorPosition() / Constants.ENCODER_TICKS_PER_INCH);
   }
 
   @Override
@@ -69,6 +82,6 @@ public class Drivetrain extends SubsystemBase {
 
   @Override
   public void simulationPeriodic() {
-    // This method will be called once per scheduler run during simulation
+    SmartDashboard.putNumber("Encoder: ", left_front.getSelectedSensorPosition());
   }
 }
