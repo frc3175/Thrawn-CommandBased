@@ -28,8 +28,6 @@ import frc.robot.subsystems.Climber;
 import frc.robot.automodes.AutoWithTurn;
 import frc.robot.automodes.BasicAuton;
 import frc.robot.automodes.BasicAutonReverse;
-import frc.robot.automodes.TestAuton;
-import frc.robot.automodes.TestAutonDuration;
 import frc.robot.automodes.ThreeBallAuton;
 import frc.robot.automodes.ThreeBallAutonEncoders;
 import frc.robot.commands.AgitateHopper;
@@ -60,8 +58,6 @@ public class RobotContainer {
   Command m_basicAutonReverse = new BasicAutonReverse(m_drivetrain);
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper, m_intake);
-  Command m_testAuton = new TestAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
-  Command m_testAutonDuration = new TestAutonDuration(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_autoWithTurn = new AutoWithTurn(m_drivetrain, m_shooter, m_hopper, m_intake);
 
 //Set the default command in the constructor
@@ -151,12 +147,20 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     //This is the command that will be run in auton
     //Uncomment the command to be run and comment the others out
+
+    //BASIC AUTON: DRIVE FORWARD OFF LINE (TOWARD GOAL), DROP INTAKE
     //return m_basicAuton;
+
+    //BASIC AUTON REVERSE: DRIVE BACKWARD OFF LINE (TOWARD RENDEZVOUS), DROP INTAKE
     //return m_basicAutonReverse;
+
+    //THREE BALL AUTON: SHOOT 3 BALLS USING DURATION (ONLY USED AS A BACKUP IF ENCODERS DON'T WORK)
     //return m_threeBallAuton;
+
+    //THREE BALL AUTON ENCODERS: SHOOT 3 BALLS USING ENCODERS FOR DRIVE
     //return m_threeBallAutonEncoders;
-    //return m_testAuton;
-    //return m_testAutonDuration;
+
+    //AUTO WITH TURN: START OFF CENTER AT 45 DEGREES RELATIVE TO GOAL, SHOOT 3
     return m_autoWithTurn;
  }
 }
