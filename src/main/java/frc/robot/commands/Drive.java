@@ -56,7 +56,7 @@ public class Drive extends CommandBase {
     rightTriggerInputMod = rightTriggerInput * rightTriggerInput;
 
 
-    m_drivetrain.Drive((leftTriggerInputMod - rightTriggerInputMod), (turnSpeedMod * -1), m_qt); 
+    m_drivetrain.Drive((leftTriggerInput - rightTriggerInput), (turnSpeedMod * -1), m_qt); 
   }
 
   // Called once the command enlds or is interrupted.
