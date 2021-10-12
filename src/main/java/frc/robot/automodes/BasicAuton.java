@@ -16,7 +16,7 @@ public class BasicAuton extends SequentialCommandGroup{
 
     public BasicAuton(Drivetrain drivetrain) {
         m_drivetrain = drivetrain;
-        addRequirements(m_drivetrain);
+        addRequirements(m_drivetrain); 
 
         addCommands(
             new DriveDuration(m_drivetrain, Constants.BASIC_AUTON_DRIVE_SPEED, 2.0)
