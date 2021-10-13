@@ -102,7 +102,7 @@ public final class Constants {
     public static final double BASIC_AUTON_REVERSE_SPEED = 0.2; //Drive speed in basic auton reverse
     public static final double BASIC_AUTON_DISTANCE = 50000; //Encoder ticks to drive in basic autons
 
-    //****THREE BALL AUTON****
+    // **** THREE BALL AUTON- TIMER ****
 
     public static final double THREE_BALL_TIMEOUT = 5.0;
     public static final double THREE_BALL_INITIAL_DRIVE = 1.23;
@@ -113,5 +113,10 @@ public final class Constants {
     public static final double THREE_BALL_DRIVE_SPEED = -0.4;
     public static final double THREE_BALL_SHOOT_SPEED = 1;
     public static final double THREE_BALL_HOPPER_SPEED = 0.8;
+
+    // **** THREE BALL AUTON- ENCODERS ****
+
+    public static final double THREE_BALL_DRIVE_DISTANCE = 85500;
+
 
 }
