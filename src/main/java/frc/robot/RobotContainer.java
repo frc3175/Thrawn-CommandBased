@@ -146,7 +146,7 @@ public class RobotContainer {
     //This is the command that will be run in auton
     //Uncomment the command to be run and comment the others out
 
-    //BASIC AUTON: DRIVE FORWARD OFF LINE (TOWARD GOAL), DROP INTAKE
+    //BASIC AUTON: DRIVE FORWARD OFF LINE (TOWARD GOAL), DROP INTAKE (this has to be tested)
     //return m_basicAuton;
 
     //THREE BALL AUTON: SHOOT 3 BALLS USING DURATION (ONLY USED AS A BACKUP IF ENCODERS DON'T WORK)
@@ -155,7 +155,7 @@ public class RobotContainer {
     //THREE BALL AUTON ENCODERS: SHOOT 3 BALLS USING ENCODERS FOR DRIVE
     return m_threeBallAutonEncoders;
 
-    //AUTO WITH TURN: START OFF CENTER AT 45 DEGREES RELATIVE TO GOAL, SHOOT 3
+    //AUTO WITH TURN: START OFF CENTER AT 45 DEGREES RELATIVE TO GOAL, SHOOT 3 (needs to be tuned)
     //return m_autoWithTurn;
  }
 }
