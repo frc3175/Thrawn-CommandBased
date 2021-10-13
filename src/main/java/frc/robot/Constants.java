@@ -28,7 +28,6 @@ public final class Constants {
 
     public static final int GYRO_PORT = 0; //random 
 
-    //TODO: calculate encoder ticks per inch
     public static final int ENCODER_TICKS_PER_INCH = 15; 
 
     /*

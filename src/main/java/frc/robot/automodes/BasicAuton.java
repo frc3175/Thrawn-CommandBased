@@ -1,7 +1,5 @@
 package frc.robot.automodes;
 
-//TODO: update basic auton and basic auton reverse to run with encoders
-
 import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
