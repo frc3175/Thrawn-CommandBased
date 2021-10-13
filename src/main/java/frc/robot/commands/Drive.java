@@ -75,10 +75,3 @@ public class Drive extends CommandBase {
 
 
   
-
-  /* Old execute method (before reverse turning was fixed and joystick inputs were squared) 
-    // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    m_drivetrain.Drive((m_leftTrigger.getAsDouble() - m_rightTrigger.getAsDouble()), -m_rotation.getAsDouble(), m_qt);
-  } */
