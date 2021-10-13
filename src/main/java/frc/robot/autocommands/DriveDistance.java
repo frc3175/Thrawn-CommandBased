@@ -26,7 +26,7 @@ public class DriveDistance extends CommandBase {
     public void execute() {
 
         
-            if(m_drivetrain.getEncoder() < m_encoderTicks) {
+            if(Math.abs(m_drivetrain.getEncoder()) < m_encoderTicks) {
                 m_drivetrain.Drive(m_power, 0, false);
             } else {
                 m_drivetrain.Drive(0, 0, false);

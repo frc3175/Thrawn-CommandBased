@@ -27,7 +27,6 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Climber;
 //import frc.robot.automodes.AutoWithTurn;
 import frc.robot.automodes.BasicAuton;
-import frc.robot.automodes.BasicAutonReverse;
 import frc.robot.automodes.ThreeBallAuton;
 import frc.robot.automodes.ThreeBallAutonEncoders;
 import frc.robot.commands.AgitateHopper;
@@ -55,7 +54,6 @@ public class RobotContainer {
 
 //These are each of the autonomous commands that we can run
   Command m_basicAuton = new BasicAuton(m_drivetrain);
-  Command m_basicAutonReverse = new BasicAutonReverse(m_drivetrain);
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper, m_intake);
   //Command m_autoWithTurn = new AutoWithTurn(m_drivetrain, m_shooter, m_hopper, m_intake);
@@ -150,9 +148,6 @@ public class RobotContainer {
 
     //BASIC AUTON: DRIVE FORWARD OFF LINE (TOWARD GOAL), DROP INTAKE
     //return m_basicAuton;
-
-    //BASIC AUTON REVERSE: DRIVE BACKWARD OFF LINE (TOWARD RENDEZVOUS), DROP INTAKE
-    //return m_basicAutonReverse;
 
     //THREE BALL AUTON: SHOOT 3 BALLS USING DURATION (ONLY USED AS A BACKUP IF ENCODERS DON'T WORK)
     //return m_threeBallAuton;

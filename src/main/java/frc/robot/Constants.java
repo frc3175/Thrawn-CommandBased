@@ -100,8 +100,7 @@ public final class Constants {
 
     public static final double BASIC_AUTON_DRIVE_SPEED = -0.2; //Drive speed in basic auton
     public static final double BASIC_AUTON_REVERSE_SPEED = 0.2; //Drive speed in basic auton reverse
-    public static final double BASIC_TIMEOUT = 1.0; //Timeout before moving in basic autons
-    public static final double BASIC_DRIVE_TIME = 2.0; //Seconds to drive forward in basic autons
+    public static final double BASIC_AUTON_DISTANCE = 50000; //Encoder ticks to drive in basic autons
 
     //****THREE BALL AUTON****
 
