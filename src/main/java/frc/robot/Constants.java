@@ -28,7 +28,6 @@ public final class Constants {
 
     public static final int GYRO_PORT = 0; //random 
 
-    //TODO: calculate encoder ticks per inch
     public static final int ENCODER_TICKS_PER_INCH = 15; 
 
     /*
@@ -100,10 +99,9 @@ public final class Constants {
 
     public static final double BASIC_AUTON_DRIVE_SPEED = -0.2; //Drive speed in basic auton
     public static final double BASIC_AUTON_REVERSE_SPEED = 0.2; //Drive speed in basic auton reverse
-    public static final double BASIC_TIMEOUT = 1.0; //Timeout before moving in basic autons
-    public static final double BASIC_DRIVE_TIME = 2.0; //Seconds to drive forward in basic autons
+    public static final double BASIC_AUTON_DISTANCE = 50000; //Encoder ticks to drive in basic autons
 
-    //****THREE BALL AUTON****
+    // **** THREE BALL AUTON- TIMER ****
 
     public static final double THREE_BALL_TIMEOUT = 5.0;
     public static final double THREE_BALL_INITIAL_DRIVE = 1.23;
@@ -114,5 +112,10 @@ public final class Constants {
     public static final double THREE_BALL_DRIVE_SPEED = -0.4;
     public static final double THREE_BALL_SHOOT_SPEED = 1;
     public static final double THREE_BALL_HOPPER_SPEED = 0.8;
+
+    // **** THREE BALL AUTON- ENCODERS ****
+
+    public static final double THREE_BALL_DRIVE_DISTANCE = 85500;
+
 
 }

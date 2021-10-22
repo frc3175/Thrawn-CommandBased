@@ -1,25 +1,28 @@
 package frc.robot.automodes;
 
-//TODO: update basic auton and basic auton reverse to run with encoders
-
 import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
-import frc.robot.autocommands.DriveDuration;
+import frc.robot.autocommands.DriveDistance;
+import frc.robot.commands.IntakeDown;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
 
 public class BasicAuton extends SequentialCommandGroup{
 
     private Drivetrain m_drivetrain;
+    private Intake m_intake;
     private Timer m_timer = new Timer();
 
-    public BasicAuton(Drivetrain drivetrain) {
+    public BasicAuton(Drivetrain drivetrain, Intake intake) {
         m_drivetrain = drivetrain;
+        m_intake = intake;
         addRequirements(m_drivetrain); 
 
         addCommands(
-            new DriveDuration(m_drivetrain, Constants.BASIC_AUTON_DRIVE_SPEED, 2.0)
+            new IntakeDown(m_intake),
+            new DriveDistance(m_drivetrain, Constants.BASIC_AUTON_DRIVE_SPEED, Constants.BASIC_AUTON_DISTANCE)
         );
 
     }
