@@ -10,16 +10,15 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 
-public class AutoWithTurn extends CommandBase{
+public class TurningNoGyro extends CommandBase{
 
     private Drivetrain m_drivetrain;
     private Shooter m_shooter;
     private Hopper m_hopper;
     private Intake m_intake;
     private Timer m_timer = new Timer();
-    private ADXRS450_Gyro m_gyro = new ADXRS450_Gyro(Constants.m_gyroPort);
 
-    public AutoWithTurn(Drivetrain drivetrain, Shooter shooter, Hopper hopper, Intake intake) {
+    public TurningNoGyro(Drivetrain drivetrain, Shooter shooter, Hopper hopper, Intake intake) {
         m_drivetrain = drivetrain;
         m_shooter = shooter;
         m_hopper = hopper;
@@ -32,8 +31,6 @@ public class AutoWithTurn extends CommandBase{
         m_timer.reset();
         m_timer.start();
         m_intake.IntakeDown();
-        m_gyro.calibrate();
-        m_gyro.reset();
         m_drivetrain.resetEncoders();
     }
 
@@ -41,18 +38,17 @@ public class AutoWithTurn extends CommandBase{
     public void execute() {
         if(m_timer.get() < 3) {
             //do nothing
-        } else if(m_gyro.getAngle() < 45) {
+        } else if(m_timer.get() < 3.4) {
             m_drivetrain.turnRight();
-            SmartDashboard.putNumber("Gyro: ", m_gyro.getAngle());
+            m_drivetrain.resetEncoders();
         } else if(m_drivetrain.getEncoder() > -97113) {
             SmartDashboard.putNumber("Encoders: ", m_drivetrain.getEncoder());
             m_drivetrain.Drive(Constants.THREE_BALL_DRIVE_SPEED, 0, false);
             m_shooter.StopShooter();
             m_hopper.hopperPower(0);
-        } else if(m_gyro.getAngle() > 0) {
+        } else if(m_timer.get() < 4.2) {
             m_drivetrain.turnLeft();
             m_drivetrain.resetEncoders();
-            SmartDashboard.putNumber("Gyro: ", m_gyro.getAngle());
         } else if(m_drivetrain.getEncoder() > -21809) {
             m_drivetrain.Drive(Constants.THREE_BALL_DRIVE_SPEED, 0, false);
         } else {

@@ -28,7 +28,6 @@ import frc.robot.subsystems.Climber;
 import frc.robot.automodes.AutoWithTurn;
 //import frc.robot.automodes.AutoWithTurn;
 import frc.robot.automodes.BasicAuton;
-import frc.robot.automodes.BasicAutonReverse;
 import frc.robot.automodes.ThreeBallAuton;
 import frc.robot.automodes.ThreeBallAutonEncoders;
 import frc.robot.commands.AgitateHopper;
@@ -55,8 +54,7 @@ public class RobotContainer {
   //private boolean m_quickTurn = m_driverController.getBumperPressed(Hand.kLeft);
 
 //These are each of the autonomous commands that we can run
-  Command m_basicAuton = new BasicAuton(m_drivetrain);
-  Command m_basicAutonReverse = new BasicAutonReverse(m_drivetrain);
+  Command m_basicAuton = new BasicAuton(m_drivetrain, m_intake);
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_autoWithTurn = new AutoWithTurn(m_drivetrain, m_shooter, m_hopper, m_intake);

@@ -3,12 +3,17 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
+
 import java.util.function.DoubleSupplier;
 
 //import javax.swing.plaf.synth.SynthMenuBarUI;
 
 import frc.robot.subsystems.Drivetrain;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 
 public class Drive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
@@ -17,6 +22,7 @@ public class Drive extends CommandBase {
   private final DoubleSupplier m_rightTrigger;
   private final DoubleSupplier m_rotation;
   private final boolean m_qt;
+  private ADXRS450_Gyro m_gyro = new ADXRS450_Gyro(Constants.m_gyroPort);
 
   
   public Drive(Drivetrain drivetrain, DoubleSupplier leftTrigger, DoubleSupplier rightTrigger, DoubleSupplier rotation, boolean qt) {
@@ -38,6 +44,8 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+
+    SmartDashboard.putNumber("Gyro: ", m_gyro.getAngle());
 
     //double joystickTurnSpeed = m_rotation.getAsDouble();
     double turnSpeedMod;
