@@ -37,7 +37,7 @@ public class ThreeBallAutonEncoders extends CommandBase{
         if(m_timer.get() < 3) {
             m_intake.IntakeDown();
         } else {
-            if(m_drivetrain.getEncoder() > -85500) {
+            if(m_drivetrain.getEncoder() > -94500) {
                 SmartDashboard.putNumber("Encoders: ", m_drivetrain.getEncoder());
                 m_drivetrain.Drive(Constants.THREE_BALL_DRIVE_SPEED, 0, false);
                 m_shooter.StopShooter();

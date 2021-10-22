@@ -71,6 +71,10 @@ public class Drivetrain extends SubsystemBase {
     m_drive.curvatureDrive(0, 0.5, true);
   }
 
+  public void turnRight() {
+    m_drive.curvatureDrive(0, -0.5, true);
+  }
+
   public double getDistance() {
       return (left_front.getSelectedSensorPosition() / Constants.ENCODER_TICKS_PER_INCH);
   }

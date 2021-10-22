@@ -25,6 +25,7 @@ import frc.robot.commands.ClimbUp;
 import frc.robot.commands.ClimbWithEncoder;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Climber;
+import frc.robot.automodes.AutoWithTurn;
 //import frc.robot.automodes.AutoWithTurn;
 import frc.robot.automodes.BasicAuton;
 import frc.robot.automodes.BasicAutonReverse;
@@ -58,7 +59,7 @@ public class RobotContainer {
   Command m_basicAutonReverse = new BasicAutonReverse(m_drivetrain);
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper, m_intake);
-  //Command m_autoWithTurn = new AutoWithTurn(m_drivetrain, m_shooter, m_hopper, m_intake);
+  Command m_autoWithTurn = new AutoWithTurn(m_drivetrain, m_shooter, m_hopper, m_intake);
 
 //Set the default command in the constructor
   public RobotContainer() {
@@ -158,9 +159,9 @@ public class RobotContainer {
     //return m_threeBallAuton;
 
     //THREE BALL AUTON ENCODERS: SHOOT 3 BALLS USING ENCODERS FOR DRIVE
-    return m_threeBallAutonEncoders;
+    //return m_threeBallAutonEncoders;
 
     //AUTO WITH TURN: START OFF CENTER AT 45 DEGREES RELATIVE TO GOAL, SHOOT 3
-    //return m_autoWithTurn;
+    return m_autoWithTurn;
  }
 }
