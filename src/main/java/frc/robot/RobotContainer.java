@@ -30,6 +30,7 @@ import frc.robot.automodes.AutoWithTurn;
 import frc.robot.automodes.BasicAuton;
 import frc.robot.automodes.ThreeBallAuton;
 import frc.robot.automodes.ThreeBallAutonEncoders;
+import frc.robot.automodes.TurningNoGyro;
 import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.AgitateIntake;
 import frc.robot.commands.ClimbDown;
@@ -58,6 +59,7 @@ public class RobotContainer {
   Command m_threeBallAuton = new ThreeBallAuton(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_threeBallAutonEncoders = new ThreeBallAutonEncoders(m_drivetrain, m_shooter, m_hopper, m_intake);
   Command m_autoWithTurn = new AutoWithTurn(m_drivetrain, m_shooter, m_hopper, m_intake);
+  Command m_turningNoGyro = new TurningNoGyro(m_drivetrain, m_shooter, m_hopper, m_intake);
 
 //Set the default command in the constructor
   public RobotContainer() {
@@ -160,6 +162,9 @@ public class RobotContainer {
     //return m_threeBallAutonEncoders;
 
     //AUTO WITH TURN: START OFF CENTER AT 45 DEGREES RELATIVE TO GOAL, SHOOT 3
-    return m_autoWithTurn;
+    //return m_autoWithTurn;
+
+    return m_turningNoGyro;
+    
  }
 }

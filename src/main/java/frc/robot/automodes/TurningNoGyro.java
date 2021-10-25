@@ -36,20 +36,20 @@ public class TurningNoGyro extends CommandBase{
 
     @Override
     public void execute() {
-        if(m_timer.get() < 3) {
+        SmartDashboard.putNumber("Left Encoders: ", m_drivetrain.getEncoder());
+        SmartDashboard.putNumber("Right Encoders: ", m_drivetrain.getRightEncoder());
+        if(m_timer.get() < 4) {
             //do nothing
-        } else if(m_timer.get() < 3.4) {
-            m_drivetrain.turnRight();
             m_drivetrain.resetEncoders();
-        } else if(m_drivetrain.getEncoder() > -97113) {
-            SmartDashboard.putNumber("Encoders: ", m_drivetrain.getEncoder());
+        } else if(m_drivetrain.getEncoder() > -7500) {
+            m_drivetrain.turnRight();
+        } else if(m_drivetrain.getEncoder() > (-95113 - 7500)) {
             m_drivetrain.Drive(Constants.THREE_BALL_DRIVE_SPEED, 0, false);
             m_shooter.StopShooter();
             m_hopper.hopperPower(0);
-        } else if(m_timer.get() < 4.2) {
+        } else if(m_drivetrain.getRightEncoder() < 95113) {
             m_drivetrain.turnLeft();
-            m_drivetrain.resetEncoders();
-        } else if(m_drivetrain.getEncoder() > -21809) {
+        } else if(m_drivetrain.getRightEncoder() < 100113) {
             m_drivetrain.Drive(Constants.THREE_BALL_DRIVE_SPEED, 0, false);
         } else {
             m_drivetrain.stopRobot();

@@ -46,6 +46,7 @@ public class Drive extends CommandBase {
   public void execute() {
 
     SmartDashboard.putNumber("Gyro: ", m_gyro.getAngle());
+    SmartDashboard.putNumber("Encoders: ", m_drivetrain.getEncoder());
 
     //double joystickTurnSpeed = m_rotation.getAsDouble();
     double turnSpeedMod;
