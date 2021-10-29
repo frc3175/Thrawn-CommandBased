@@ -152,19 +152,17 @@ public class RobotContainer {
     //BASIC AUTON: DRIVE FORWARD OFF LINE (TOWARD GOAL), DROP INTAKE
     //return m_basicAuton;
 
-    //BASIC AUTON REVERSE: DRIVE BACKWARD OFF LINE (TOWARD RENDEZVOUS), DROP INTAKE
-    //return m_basicAutonReverse;
-
     //THREE BALL AUTON: SHOOT 3 BALLS USING DURATION (ONLY USED AS A BACKUP IF ENCODERS DON'T WORK)
     //return m_threeBallAuton;
 
     //THREE BALL AUTON ENCODERS: SHOOT 3 BALLS USING ENCODERS FOR DRIVE
-    //return m_threeBallAutonEncoders;
+    return m_threeBallAutonEncoders;
 
-    //AUTO WITH TURN: START OFF CENTER AT 45 DEGREES RELATIVE TO GOAL, SHOOT 3
+    //AUTO WITH TURN: DOESN'T WORK
     //return m_autoWithTurn;
 
-    return m_turningNoGyro;
+    //TURNING NO GYRO: WORKS, NOT TUNED
+    //return m_turningNoGyro;
     
  }
 }
