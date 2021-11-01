@@ -107,7 +107,7 @@ public class RobotContainer {
 //Y button agitates intake
     new JoystickButton(m_operatorController, Button.kY.value)
         .whenHeld(new AgitateIntake(m_intake, Constants.OUTTAKE_SPEED))
-        .whenReleased(new AgitateIntake(m_intake, 0.0));
+        .whenReleased(new AgitateIntake(m_intake, 0.0)); 
 
 //B button controls the shooter
     new JoystickButton(m_operatorController, Button.kB.value)
